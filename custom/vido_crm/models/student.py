@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from email.policy import default
-from odoo import api, fields, models
+
+from odoo import models, fields, api
 
 
-class student(models.Model):
+class vido_crm(models.Model):
     _name = 'student'
     _description = 'thong tin models sinh vien'
 
@@ -24,4 +23,3 @@ class student(models.Model):
         ('chưa phản hồi', 'Chưa phản hồi'),
         ('đã phản hồi','Đã phản hồi')
     ], required=True, default = 'chưa phản hồi')
-    
