@@ -1,21 +1,39 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+import json
+from odoo import http
+import odoo
+import logging
+_logger = logging.getLogger(__name__)
+
+class VidoCrm(http.Controller):
+    @http.route(['/api/sinhvien/<dbname>/<id>'], type='http', auth="none", sitemap=False, cors='*', csrf=False)
+    def pet_handler(self, dbname, id, **kw):
+        model_name = "student"
+        try:
+            registry = odoo.modules.registry.Registry(dbname)
+            with odoo.api.Environment.manage(), registry.cursor() as cr:
+                env = odoo.api.Environment(cr, odoo.SUPERUSER_ID, {})
+                rec = env[model_name].search([('id', '=', int(id))], limit=1)
+                response = {
+                    "status": "ok",
+                    "content": {
+                        "Name": rec.Name,
+                        "MSSV": rec.MSSV,
+                        "Ngaysinh": rec.Ngaysinh,
+                        "Thangsinh": rec.Thangsinh,
+                        "Namsinh": rec.Namsinh,
+                        "Gender": rec.Gender,
+                        "SDT": rec.SDT,
+                        "Status": rec.Status,
+                        "UpdateDatetime": rec.UpdateDatetime.strftime('%d/%m/%Y'),
+                        "ResponseStatus": rec.ResponseStatus,
+                    }
+                }
+        except Exception:
+            response = {
+                "status": "error",
+                "content": "not found"
+            }
+        return json.dumps(response)
 
 
-# class VidoCrm(http.Controller):
-#     @http.route('/vido_crm/vido_crm/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
-
-#     @http.route('/vido_crm/vido_crm/objects/', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('vido_crm.listing', {
-#             'root': '/vido_crm/vido_crm',
-#             'objects': http.request.env['vido_crm.vido_crm'].search([]),
-#         })
-
-#     @http.route('/vido_crm/vido_crm/objects/<model("vido_crm.vido_crm"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('vido_crm.object', {
-#             'object': obj
-#         })

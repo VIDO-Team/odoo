@@ -45,12 +45,35 @@
         </form>
       </field>
     </record>
+    <!-- view kanban -->
+    <record id="student_kanban" model="ir.ui.view">
+      <field name="name">student.kanban</field>
+      <field name="model">student</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="ResponseStatus" class="o_kanban_small_column o_opportunity_kanban">
+          <templates>
+            <t t-name="kanban-box">
+                <div t-attf-class="oe_kanban_global_click">
+                    <div class="oe_kanban_details">
+                      <ul>
+                        <li> Name: <field name="Name"/></li>
+                        <li> MSSV: <field name="MSSV"/></li>
+                        <li> Giới tính: <field name="Gender"/></li>
+                        <li> SĐT: <field name="SDT"/></li>
+                      </ul>
+                    </div>
+                </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     <record id="student_action" model="ir.actions.act_window">
       <field name="name">vidoClass</field>
       <field name="res_model">student</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,kanban,form</field>
       <field name="domain">[]</field>
       <field name="context">{}</field>
       <field name="help" type="html">
@@ -71,9 +94,16 @@
     name="Student"
     parent="Class_menu"
     sequence="10"/>
+
   <menuitem
     id="Piperline_Student_root"
-    name="My model"
+    name="My Pipeline"
+    parent="Student_Class_root"
+    sequence="10"/>
+    
+  <menuitem
+    id="Model_Student_root"
+    name="Student Models"
     parent="Student_Class_root"
     action="student_action"
     sequence="10"/>
