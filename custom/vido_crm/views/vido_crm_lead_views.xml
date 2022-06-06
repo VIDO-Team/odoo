@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="Pipeline_action" model="ir.actions.act_window">
+        <field name="name">VidoPipeline</field>
+        <field name="res_model">student</field>
+        <field name="view_mode">kanban,tree,graph,pivot,form,activity</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            create Pipeline!
+          </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="Piperline_Student_root"
+        name="My Pipeline"
+        parent="Student_Class_root"
+        action="Pipeline_action"
+        sequence="10"/>
+</odoo>

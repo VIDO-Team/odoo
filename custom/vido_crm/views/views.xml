@@ -1,13 +1,50 @@
 <odoo>
-    <!-- explicit list view definition -->
+    <!-- view body -->
+    <record id="student_view_tree" model="ir.ui.view">
+      <field name="name">student.tree</field>
+      <field name="model">student</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="Name" />
+          <field name="MSSV" />
+          <field name="Ngaysinh" />
+          <field name="Thangsinh" />
+          <field name="Namsinh" />
+          <field name="Gender" />
+          <field name="SDT" />
+          <field name="Status" />
+          <field name="UpdateDatetime" />
+          <field name="ResponseStatus" />
+        </tree>
+      </field>
+    </record>
 
-    <!-- <record model="ir.actions.act_window.view" id="action_server">
-      <field name="name">vido_crm</field>
-      <field name="res_model">model.student</field>
-      <field name="view_mode">graph</field>
-      <field name="view_id" ref="my_specific_view"/>
-    </record> -->
-
+    <record id="student_form" model="ir.ui.view">
+      <field name="name">student.form</field>
+      <field name="model">student</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+                <group>
+                    <field name="Name" />
+                    <field name="MSSV" />
+                    <field name="Gender" />
+                    <field name="SDT" />
+                </group>
+                <group>
+                  <field name="Ngaysinh" />
+                  <field name="Thangsinh" />
+                  <field name="Namsinh" />
+                  <field name="Status" />
+                  <field name="UpdateDatetime" />
+                  <field name="ResponseStatus" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     <record id="student_action" model="ir.actions.act_window">
@@ -22,33 +59,23 @@
         </p>
       </field>
     </record>
-    <!-- server action to the one above -->
-
-    <!-- <record model="ir.actions.server" id="vido_crm.action_server">
-      <field name="name">VidoCrm server</field>
-      <field name="model_id" ref="model_vido_crm_vido_crm"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": models.student,
-        }
-        <p class="o_view_nocontent_smiling_face">
-            create frist student!?
-        </p>
-      </field>
-    </record> -->
+    
 
   <menuitem
     id="Class_menu"
-    name="Class"
+    name="VidoCRM"
     sequence="0"/>
   
   <menuitem
     id="Student_Class_root"
     name="Student"
     parent="Class_menu"
+    sequence="10"/>
+  <menuitem
+    id="Piperline_Student_root"
+    name="My model"
+    parent="Student_Class_root"
     action="student_action"
     sequence="10"/>
+  
 </odoo>

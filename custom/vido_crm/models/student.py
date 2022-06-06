@@ -11,7 +11,7 @@ class vido_crm(models.Model):
     MSSV = fields.Text(string ='MSSV', required=True)
     Ngaysinh = fields.Integer(string='Ngaysinh', default=1)
     Thangsinh = fields.Integer(string='Thangsinh', default=1)
-    Namsinh = fields.Integer(string='Namsinh', default=1)
+    Namsinh = fields.Text(string='Namsinh', required=True)
     Gender = fields.Selection([
         ('male', 'Male'),
         ('female','Female')
