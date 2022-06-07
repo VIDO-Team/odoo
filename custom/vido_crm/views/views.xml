@@ -103,7 +103,7 @@
     
   <menuitem
     id="Model_Student_root"
-    name="Student Models"
+    name="My Pipeline"
     parent="Student_Class_root"
     action="student_action"
     sequence="10"/>

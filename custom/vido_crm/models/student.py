@@ -23,3 +23,8 @@ class vido_crm(models.Model):
         ('chưa phản hồi', 'Chưa phản hồi'),
         ('đã phản hồi','Đã phản hồi')
     ], required=True, default = 'chưa phản hồi')
+
+def action_confirm(self):
+    for rec in self:
+        student = self.env['student'].search([])
+    print('student...', student)
