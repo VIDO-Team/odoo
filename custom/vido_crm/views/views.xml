@@ -24,6 +24,9 @@
       <field name="model">student</field>
       <field name="arch" type="xml">
         <form string="">
+          <header>
+            <button string="Get Item" name="action_getApi" type="object" class="oe_highlight"/>
+          </header>
           <sheet>
             <group>
                 <group>

@@ -24,7 +24,6 @@ class vido_crm(models.Model):
         ('đã phản hồi','Đã phản hồi')
     ], required=True, default = 'chưa phản hồi')
 
-def action_confirm(self):
-    for rec in self:
-        student = self.env['student'].search([])
-    print('student...', student)
+    @api.model
+    def action_getApi(self):
+        print('button has active ....')
