@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
-
+from odoo import models, fields, api, http
+import odoo
+import json
 
 class vido_crm(models.Model):
     _name = 'student'
@@ -17,13 +18,20 @@ class vido_crm(models.Model):
         ('female','Female')
     ], required=True, default = 'male')
     SDT = fields.Text(string = 'SDT', required=True)
-    Status = fields.Integer(string='Status', required=True)
+    Status = fields.Boolean(string='Status', required=True)
     UpdateDatetime = fields.Date(string='UpdateDatetime', required=False)
     ResponseStatus = fields.Selection([
         ('chưa phản hồi', 'Chưa phản hồi'),
         ('đã phản hồi','Đã phản hồi')
     ], required=True, default = 'chưa phản hồi')
 
-    @api.model
     def action_getApi(self):
-        print('button has active ....')
+        import requests
+        dataUser = {
+            "name": self.Name + self.MSSV,
+            "isComplete": self.Status 
+        }
+        print('DataUser: ', dataUser)
+        res = requests.post("http://localhost:5108/api/todoitems", params=dataUser)
+        print('Resutl: ',json.dumps(res))
+        return res.content
