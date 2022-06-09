@@ -57,26 +57,24 @@ class ConnectMSSQL(http.Controller):
     def GetApi(self):
         res = requests.get("http://localhost:5108/api/todoitems")
         return res.content
-        
-# @api.model
-# def create(self, values):
-#     url = "http://localhost:8069/api/sinhvien"
-#     record = super(classname, self).create(values)
-#     myobj={
-#         'Name': record.Name,
-#         'MSSV': record.MSSV,
-#         'Ngaysinh': record.Ngaysinh,
-#         'Thangsinh':record.Thangsinh,
-#         'Namsinh': record.Namsinh,
-#         'Gender': record.Gender,
-#         'SDT': record.SDT,
-#         'Status': record.Status,
-#         'UpdateDatetime': record.UpdateDatetime,
-#         'ResponseStatus': record.ResponseStatus   
-#     }
     
-#     response = requests.post(url, data=myobj)
-#     return response
+    # @http.route(['/api/todoitems'], type='http', auth="none", sitemap=False, cors='*', csrf=False)
+    # def action_getApi(self):
+    #     import requests
+    #     MealType = http.request.env['student']
+    #     mealtypes = MealType.search(['name','=',MealType.get(self.name)])
+    #     dataUser = {
+    #         'name': self.Name + self.MSSV,
+    #         'isComplete': self.Status
+    #     }
+    #     print(dataUser)
+    #     hdr = {
+    #         'Content-Type': 'application/json',
+    #         'Accept':'application/json'}
+    #     res = requests.post("http://localhost:5108/api/todoitems", data=dataUser, headers=hdr)
+    #     print('Resutl content: ',res.content)
+    #     return res.content
+        
 
 # class PostStudent(http.Controller):
 #     @http.route(['/api/sinhvien/<dbname>'], type='json', auth="public",sitemap=False, cors='*', csrf=False,methods=['POST'])

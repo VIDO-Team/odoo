@@ -27,11 +27,12 @@ class vido_crm(models.Model):
 
     def action_getApi(self):
         import requests
+        
         dataUser = {
-            "name": self.Name + self.MSSV,
-            "isComplete": self.Status 
+            'name': self.Name + self.MSSV,
+            'isComplete': self.Status
         }
-        print('DataUser: ', dataUser)
-        res = requests.post("http://localhost:5108/api/todoitems", params=dataUser)
-        print('Resutl: ',json.dumps(res))
+        headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache"}
+        res = requests.post("http://localhost:5108/api/todoitems", data=json.dumps(dataUser), headers=headers)
+        print('Resutl content: ',res.content)
         return res.content
