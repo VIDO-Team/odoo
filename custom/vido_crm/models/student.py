@@ -25,6 +25,7 @@ class vido_crm(models.Model):
         ('đã phản hồi','Đã phản hồi')
     ], required=True, default = 'chưa phản hồi')
 
+
     def action_getApi(self):
         import requests
         
