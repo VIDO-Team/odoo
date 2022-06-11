@@ -30,7 +30,7 @@
           <sheet>
             <group>
                 <group>
-                    <field name="Name" />
+                    <field name="Name"/>
                     <field name="MSSV" />
                     <field name="Gender" />
                     <field name="SDT" />
@@ -44,6 +44,16 @@
                   <field name="ResponseStatus" />
               </group>
             </group>
+            <notebook>
+              <page name="extra" string="Extra Information" >
+                  <group name="name" string="Contact Infomation">
+                    <li>name: <field name="Name"/></li>
+                    <li>MSSV: <field name="MSSV"/></li>
+                    <li>giới tính: <field name="Gender"/></li>
+                    <li>SDT: <field name="SDT"/></li>
+                  </group>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>
