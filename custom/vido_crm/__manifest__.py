@@ -33,6 +33,10 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'qweb': [
+        #'static/src/xml/*.xml',
+        'static/src/xml/btn_tree_get_token.xml', # <-- khai bao thua ke qweb vua hien thuc
+    ],
     'installable': True,
     'application': True,
     'auto_install': False,
