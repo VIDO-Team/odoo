@@ -2,3 +2,4 @@
 
 from . import student
 from . import ApplicationConfig
+from . import ZaloZns
