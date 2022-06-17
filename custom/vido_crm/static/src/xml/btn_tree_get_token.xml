@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
     <t t-extend="ListView.buttons">
         <t t-jquery="div.o_list_buttons" t-operation="append" t-if="widget.modelName=='appcof'">
-           <button name="get_token" type="button" class="btn btn-primary o_list_button_multi_update" accesskey="u">
+           <button name="get_token" type="object" class="btn btn-primary o_list_button_multi_update" accesskey="u">
                 get token
             </button>
         </t>

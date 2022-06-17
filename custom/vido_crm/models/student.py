@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from tkinter import Button
 from odoo import models, fields, api, http
 import odoo
 import json
@@ -35,5 +36,11 @@ class vido_crm(models.Model):
         }
         headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache"}
         res = requests.post("http://localhost:5108/api/todoitems", data=json.dumps(dataUser), headers=headers)
+        print('Resutl content: ',res.content)
+        return res.content
+    def get_token(self):
+        import requests
+    
+        res = requests.get("http://localhost:5163/api/message/accesstoken")
         print('Resutl content: ',res.content)
         return res.content

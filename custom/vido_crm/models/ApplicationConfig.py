@@ -11,5 +11,3 @@ class applicationconfig(models.Model):
     RefreshToken = fields.Text(string='RefreshToken', required=True)
     AccessToken = fields.Text(string='AccessToken', required=True)
     LastUpdatedDateTime = fields.Date(string='LastUpdatedDateTime', required=False)
-    
-    

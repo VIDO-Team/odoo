@@ -5,6 +5,9 @@
       <field name="model">student</field>
       <field name="arch" type="xml">
         <tree string="">
+          <header>
+            <button name="get_token" string="send ZNS" type="object" class="btn btn-primary o_list_button_multi_update"/>
+          </header>
           <field name="Name" />
           <field name="MSSV" />
           <field name="Ngaysinh" />
