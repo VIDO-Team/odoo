@@ -14,3 +14,6 @@ from . import digest
 from . import crm_lead_scoring_frequency
 from . import utm
 from . import crm_recurring_plan
+from . import crm_chuyen_nganh
+from . import crm_khoi_nganh
+from . import crm_hoc_vien
