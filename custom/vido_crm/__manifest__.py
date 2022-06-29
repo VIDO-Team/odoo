@@ -20,13 +20,15 @@
     'version': '0.1',
     'sequence': 1,
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','mail'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/vido_crm_menu_view.xml',
         'views/templates.xml',
+        'views/ZaloOa.xml'
         # 'wizard/batch_update.xml'
     ],
     # only loaded in demonstration mode

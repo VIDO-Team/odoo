@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- student menu -->
+    <menuitem
+        id="Class_menu"
+        name="VidoCRM"
+        sequence="0"/>
+  
+    <menuitem
+        id="Student_Class_root"
+        name="student"
+        parent="Class_menu"
+        sequence="5"/>
+        
+    <menuitem
+        id="Model_Student_root"
+        name="My Pipeline"
+        parent="Student_Class_root"
+        action="student_action"
+        sequence="1"/>
+
+    <!-- zalo oa -->
+    <menuitem
+        id="Zalo_root"
+        name="Zalo"
+        parent="Class_menu"
+        sequence="10"/>
+    <menuitem
+        id="Zalo_chat_root"
+        name="tin nhan"
+        action="zalooa_action"
+        parent="Zalo_root"
+        sequence="1"/>
+</odoo>

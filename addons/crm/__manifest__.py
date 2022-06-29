@@ -5,7 +5,7 @@
     'name': 'CRM',
     'version': '1.2',
     'category': 'Sales/CRM',
-    'sequence': 15,
+    'sequence': 1,
     'summary': 'Track leads and close opportunities',
     'description': "",
     'website': 'https://www.odoo.com/page/crm',
@@ -54,7 +54,8 @@
         'report/crm_activity_report_views.xml',
         'report/crm_opportunity_report_views.xml',
         'views/crm_team_views.xml',
-    ],
+        'views/crm_student_views.xml'
+   ],
     'demo': [
         'data/crm_team_demo.xml',
         'data/mail_activity_demo.xml',

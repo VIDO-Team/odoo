@@ -41,12 +41,6 @@ class vido_crm(models.Model):
         print('Resutl content: ',res.content)
         return res.content
     
-    def get_token(self):
-        import requests
-        res = requests.get("http://localhost:5163/api/message/accesstoken")
-        print('Resutl content: ',res.content)
-        return res.content
-    
     def Send_ZNS(self):
         import requests
         from datetime import datetime

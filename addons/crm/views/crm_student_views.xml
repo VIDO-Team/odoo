@@ -1,0 +1,140 @@
+<odoo>
+    <!-- view body -->
+    <record id="student_view_tree" model="ir.ui.view">
+      <field name="name">student.tree</field>
+      <field name="model">crm.sinhvien</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="Ho" />
+          <field name="Ten" />
+          <field name="MSSV" />
+          <field name="Hinhanh" />
+          <field name="MaLop" />
+          <field name="hedaotaoId" />
+          <field name="nganhId" />
+          <!-- <field name="ChuyenNganhId" />
+          <field name="KhoiNganhId" /> -->
+          <field name="NamNhapHoc" />
+          <field name="KhoaHoc" />
+          <field name="HoSoId" />
+          <field name="GhiChu" />
+          <field name="NgayLap" />
+          <field name="MaTrangThai" />
+          <field name="Ngaysinh" />
+          <field name="Email" />
+          <field name="SDT" />
+          <field name="CMND" />
+          <field name="GioiTinh" />
+          <field name="NguoiLap" />
+          <field name="NoiSinh" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="student_form" model="ir.ui.view">
+      <field name="name">student.form</field>
+      <field name="model">crm.sinhvien</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+            <button string="Get Hedaotao" name="action_Hedaotao" type="object" class="oe_highlight"/>
+          </header>
+          <sheet>
+            <group>
+                <group>
+                  <field name="Ho" />
+                  <field name="Ten" />
+                  <field name="MSSV" />
+                  <field name="Hinhanh" />
+                  <field name="MaLop" />
+                  <field name="hedaotaoId" />
+                  <field name="nganhId" />
+                  <!-- <field name="ChuyenNganhId" />
+                  <field name="KhoiNganhId" /> -->
+                  <field name="NamNhapHoc" />
+                  <field name="KhoaHoc" />
+                  <field name="HoSoId" />
+                </group>
+                <group>
+                  <field name="GhiChu" />
+                  <field name="NgayLap" />
+                  <field name="MaTrangThai" />
+                  <field name="Ngaysinh" />
+                  <field name="Email" />
+                  <field name="SDT" />
+                  <field name="CMND" />
+                  <field name="GioiTinh" />
+                  <field name="NguoiLap" />
+                  <field name="NoiSinh" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- view kanban -->
+    <record id="student_kanban" model="ir.ui.view">
+      <field name="name">student.kanban</field>
+      <field name="model">crm.sinhvien</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="MaTrangThai" class="o_kanban_small_column o_opportunity_kanban" on_create="quick_create" quick_create_view="crm.quick_create_opportunity_form"
+        archivable="false" sample="1">
+          <field name="MaTrangThai" options='{"group_by_tooltip": {"requirements": "Description"}}'/>
+          <field name="Ho" />
+          <field name="Ten" />
+          <field name="MSSV" />
+          <field name="Hinhanh" />
+          <field name="MaLop" />
+          <field name="hedaotaoId" />
+          <field name="nganhId" />
+          <field name="NamNhapHoc" />
+          <field name="KhoaHoc" />
+          <field name="Ngaysinh" />
+          <field name="Email" />
+          <field name="SDT" />
+          <field name="CMND" />
+          <field name="GioiTinh" />
+          <field name="NoiSinh" />
+            <templates>
+              <t t-name="kanban-box">
+                  <div t-attf-class="oe_kanban_global_click">
+                      <div class="oe_kanban_details">
+                        <ul>
+                          <li>Họ: <field name="Ho" /></li>
+                          <li>Tên: <field name="Ten" /></li>
+                          <li>Mã số sinh viên: <field name="MSSV" /></li>
+                          <li>Hình ảnh: <field name="Hinhanh" /></li>
+                          <li>Mã Lớp: <field name="MaLop" /></li>
+                          <li>Hệ đào tạo: <field name="hedaotaoId" /></li>
+                          <li>Ngành học: <field name="nganhId" /></li>
+                          <li>Năm nhập học: <field name="NamNhapHoc" /></li>
+                          <li>Khóa học: <field name="KhoaHoc" /></li>
+                          <li>Ngày sinh: <field name="Ngaysinh" /></li>
+                          <li>Email: <field name="Email" /></li>
+                          <li>Số điện thoại: <field name="SDT" /></li>
+                          <li>CMND: <field name="CMND" /></li>
+                          <li>Giới tính: <field name="GioiTinh" /></li>
+                          <li>Nơi sinh: <field name="NoiSinh" /></li>
+                        </ul>
+                      </div>
+                  </div>
+              </t>
+            </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record id="student_action" model="ir.actions.act_window">
+      <field name="name">vidoClass</field>
+      <field name="res_model">crm.sinhvien</field>
+      <field name="view_mode">tree,kanban,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          create student!
+        </p>
+      </field>
+    </record>
+</odoo>

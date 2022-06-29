@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zalooa_form" model="ir.ui.view">
+    <field name="name">zalooa.form</field>
+    <field name="model">zalooa</field>
+    <field name="arch" type="xml">
+        <form string="">
+        <sheet>
+            <group>
+                <group>
+                    <field name="sender_id" />
+                    <field name="msgText" />
+                </group>
+            </group>
+        </sheet>
+        <div class="oe_chatter">
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+        </form>
+    </field>
+    </record>
+    
+    <record id="zalooa_action" model="ir.actions.act_window">
+        <field name="name">Zalo Oa</field>
+        <field name="res_model">zalooa</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            view message!
+          </p>
+        </field>
+      </record> 
+</odoo>

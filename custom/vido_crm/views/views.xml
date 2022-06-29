@@ -6,7 +6,6 @@
       <field name="arch" type="xml">
         <tree string="">
           <header>
-            <button name="get_token" string="Refesh Token" type="object" class="btn btn-primary o_list_button_multi_update"/>
             <button name="Send_ZNS" string="Send ZNS" type="object" class="btn btn-primary o_list_button_multi_update"/>
           </header>
           <field name="Name" />
@@ -101,30 +100,4 @@
         </p>
       </field>
     </record>
-    
-
-  <menuitem
-    id="Class_menu"
-    name="VidoCRM"
-    sequence="0"/>
-  
-  <menuitem
-    id="Student_Class_root"
-    name="Student"
-    parent="Class_menu"
-    sequence="10"/>
-
-  <menuitem
-    id="Piperline_Student_root"
-    name="My Pipeline"
-    parent="Student_Class_root"
-    sequence="10"/>
-    
-  <menuitem
-    id="Model_Student_root"
-    name="My Pipeline"
-    parent="Student_Class_root"
-    action="student_action"
-    sequence="10"/>
-  
 </odoo>
