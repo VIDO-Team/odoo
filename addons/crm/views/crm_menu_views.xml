@@ -11,7 +11,7 @@
         name="CRM"
         web_icon="crm,static/description/icon.png"
         groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"
-        sequence="6"/>
+        sequence="0"/>
 
     <!-- SALES (MAIN USER MENU) -->
     <menuitem
@@ -137,4 +137,19 @@
         id="menu_import_crm"
         name="Import &amp; Synchronize"
         parent="crm_menu_root"/>
+
+    <!-- hocvien -->
+  
+    <menuitem
+        id="Student_Class_root"
+        name="Student"
+        parent="crm_menu_root"
+        sequence="30"/>
+    <menuitem
+        id="Piperline_Student_root"
+        name="My Student"
+        parent="Student_Class_root"
+        action="crm_hocvien_action"
+        sequence="1"/>
+
 </odoo>

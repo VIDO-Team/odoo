@@ -7,6 +7,6 @@ class ChuyenNganh(models.Model):
 
     ma = fields.Char('Mã')
     ten = fields.Char('Tên')
-    nganhId = fields.Many2many('Id ngành')
+    nganhId = fields.Many2one('Id ngành')
     tenTA = fields.Char('Tên tiếng anh')
     kyHieu = fields.Char('Ký hiệu')

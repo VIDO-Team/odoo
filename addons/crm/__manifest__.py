@@ -54,6 +54,9 @@
         'report/crm_activity_report_views.xml',
         'report/crm_opportunity_report_views.xml',
         'views/crm_team_views.xml',
+        # 'views/crm_chuyennganh_views.xml',
+        # 'views/crm_khoinganh_views.xml',
+        'views/crm_hocvien_views.xml',
     ],
     'demo': [
         'data/crm_team_demo.xml',
