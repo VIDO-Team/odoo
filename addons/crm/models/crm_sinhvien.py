@@ -66,17 +66,33 @@ class vido_crm(models.Model):
             
         return conPG.commit()
 
-    # def action_getApi(self):
-    #     import requests
+    def action_hocvien(self):
+        import requests
         
-    #     dataUser = {
-    #         'name': self.Name + self.MSSV,
-    #         'isComplete': self.Status
-    #     }
-    #     headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache"}
-    #     res = requests.post("http://localhost:5108/api/todoitems", data=json.dumps(dataUser), headers=headers)
-    #     print('Resutl content: ',res.content)
-    #     return res.content
+        dataUser = {
+            'mshv': self.MSSV,
+            'name': self.Ho + self.Ten,
+            'hinhanh': self.Hinhanh,
+            'maLop': self.MaLop,
+            'hedaotao':self.hedaotaoId, 
+            'namNhapHoc': self.NamNhapHoc,
+            'KhoaHoc': self.KhoaHoc,
+            'hoSoId': self.HoSoId,
+            'ghiChu': self.GhiChu,
+            'ngayLap': self.NgayLap,
+            'maTrangThai': self.MaTrangThai,
+            'ngaySinh': self.Ngaysinh,
+            'email': self.Email,
+            'sdt': self.SDT,
+            'cmnd': self.CMND,
+            'gioiTinh': self.GioiTinh,
+            'nguoiLap': self.NguoiLap,
+            'noiSinh': self.NoiSinh
+        }
+        headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache"}
+        res = requests.post("http://localhost:8086/hocvien", data=json.dumps(dataUser), headers=headers)
+        print('Resutl content: ',res.content)
+        return res.content
     
     # def Send_ZNS(self):
     #     import requests

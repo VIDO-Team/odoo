@@ -10,9 +10,7 @@
           <field name="MSSV" />
           <field name="Hinhanh" />
           <field name="MaLop" />
-          <field name="hedaotaoId">
-            <field name="Ten"/>
-          </field>
+          <field name="hedaotaoId"/>
           <field name="nganhId" />
           <!-- <field name="ChuyenNganhId" />
           <field name="KhoiNganhId" /> -->
@@ -39,7 +37,8 @@
       <field name="arch" type="xml">
         <form string="">
           <header>
-            <button string="Get Hedaotao" name="action_Hedaotao" type="object" class="oe_highlight"/>
+              <button string="Get Hedaotao" name="action_Hedaotao" type="object" class="oe_highlight"/>
+              <button string="get api" name="action_hocvien" type="object" class="oe_highlight"/>
           </header>
           <sheet>
             <group>
@@ -50,7 +49,6 @@
                   <field name="Hinhanh" />
                   <field name="MaLop" />
                   <field name="hedaotaoId" widget="many2onebutton"/>
-                  <!-- <field name="hedaotaoName" widget="many2onebutton"/> -->
                   <field name="nganhId" />
                   <!-- <field name="ChuyenNganhId" />
                   <field name="KhoiNganhId" /> -->
