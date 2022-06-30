@@ -22,6 +22,7 @@ class vido_crm(models.Model):
     MSSV = fields.Text(string ='MSSV', required=True)
     Hinhanh = fields.Text(string='Hinhanh', required=False)
     MaLop = fields.Text(string='MaLop', required=True)
+    
     hedaotaoId = fields.Many2one('crm.hedaotao',string='hedaotaoId')
     nganhId = fields.Many2one('crm.nganhhoc',string='nganhId')
     
@@ -52,14 +53,13 @@ class vido_crm(models.Model):
         cursor.execute(query)
         records = cursor.fetchall()
         for item in records:
-            item[1].strip()
-            insert_sql = """INSERT INTO crm_hedaotao (Id, Ma, Ten, TenTA, HinhthucdaotaoId, kyHieu) 
-                            VALUES('{Id}','{Ma}','{Ten}','{TenTA}','{HinhThuc}','{KyHieu}')""".format(
+            insert_sql = """INSERT INTO crm_hedaotao (id, "Ma", "Ten", "TenTA", "HinhthucdaotaoId", "kyHieu") 
+                            VALUES('{Id}','{Ma}','{Ten}','{TenTA}',{HinhThuc},'{KyHieu}')""".format(
                                 Id = item[0],
                                 Ma = item[1].strip(),
                                 Ten = item[2],
                                 TenTA = item[3],
-                                HinhThuc = item[4],
+                                HinhThuc = json.dumps(item[4]),
                                 KyHieu = item[5])
             print(insert_sql)
             cur.execute(insert_sql)
