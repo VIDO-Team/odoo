@@ -149,5 +149,11 @@
         name="My Student"
         parent="crm_menu_student"
         action="student_action"
-        sequence="1"/> 
+        sequence="1"/>
+    <menuitem
+        id="menu_crm_hedaotao"
+        name="He dao tao"
+        parent="crm_menu_student"
+        action="hedaotao_action"
+        sequence="2"/> 
 </odoo>

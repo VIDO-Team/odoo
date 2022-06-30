@@ -10,7 +10,9 @@
           <field name="MSSV" />
           <field name="Hinhanh" />
           <field name="MaLop" />
-          <field name="hedaotaoId" />
+          <field name="hedaotaoId">
+            <field name="Ten"/>
+          </field>
           <field name="nganhId" />
           <!-- <field name="ChuyenNganhId" />
           <field name="KhoiNganhId" /> -->
@@ -47,7 +49,8 @@
                   <field name="MSSV" />
                   <field name="Hinhanh" />
                   <field name="MaLop" />
-                  <field name="hedaotaoId" />
+                  <field name="hedaotaoId" widget="many2onebutton"/>
+                  <!-- <field name="hedaotaoName" widget="many2onebutton"/> -->
                   <field name="nganhId" />
                   <!-- <field name="ChuyenNganhId" />
                   <field name="KhoiNganhId" /> -->
@@ -85,7 +88,9 @@
           <field name="MSSV" />
           <field name="Hinhanh" />
           <field name="MaLop" />
-          <field name="hedaotaoId" />
+          <field name="hedaotaoId">
+            <field name="Ten"/>
+          </field>
           <field name="nganhId" />
           <field name="NamNhapHoc" />
           <field name="KhoaHoc" />

@@ -33,7 +33,7 @@
         'data/digest_data.xml',
         'data/mail_data.xml',
         'data/crm_recurring_plan_data.xml',
-
+        
         'wizard/crm_lead_lost_views.xml',
         'wizard/crm_lead_to_opportunity_views.xml',
         'wizard/crm_lead_to_opportunity_mass_views.xml',
@@ -54,7 +54,8 @@
         'report/crm_activity_report_views.xml',
         'report/crm_opportunity_report_views.xml',
         'views/crm_team_views.xml',
-        'views/crm_student_views.xml'
+        'views/crm_student_views.xml',
+        'views/crm_hedaotao_views.xml'
    ],
     'demo': [
         'data/crm_team_demo.xml',
