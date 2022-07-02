@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from asyncio.windows_events import NULL
 from contextlib import nullcontext
 from datetime import datetime
 from email.policy import default
@@ -20,7 +21,7 @@ class vido_crm(models.Model):
     Ho = fields.Text(string ='Ho', required=True)
     Ten = fields.Text(string='Ten', required=True)
     MSSV = fields.Text(string ='MSSV', required=True)
-    Hinhanh = fields.Text(string='Hinhanh', required=False)
+    Hinhanh = fields.Text(string='Hinhanh', required=False,default="")
     MaLop = fields.Text(string='MaLop', required=True)
     
     hedaotaoId = fields.Many2one('crm.hedaotao',string='hedaotaoId')
@@ -28,20 +29,20 @@ class vido_crm(models.Model):
     
     NamNhapHoc = fields.Integer(string='NamNhapHoc', default=1)
     KhoaHoc = fields.Integer(string='KhoaHoc', default=1)
-    HoSoId = fields.Integer(string='HoSoId', required=False)
-    GhiChu = fields.Text(string='GhiChu', required=False)
+    HoSoId = fields.Integer(string='HoSoId', required=False,default="")
+    GhiChu = fields.Text(string='GhiChu', required=False,default="")
     NgayLap = fields.Date(string='NgayLap', required=False)
-    MaTrangThai = fields.Text(string='MaTrangThai', required=False)
+    MaTrangThai = fields.Text(string='MaTrangThai', required=False,default="")
     Ngaysinh = fields.Date(string='Ngaysinh', required=True)
-    Email = fields.Text(string='Email', required=False)
-    SDT = fields.Text(string='SDT', required=False)
-    CMND = fields.Text(string='CMND', required=False)
+    Email = fields.Text(string='Email', required=False,default="")
+    SDT = fields.Text(string='SDT', required=False,default="")
+    CMND = fields.Text(string='CMND', required=False,default="")
     GioiTinh = fields.Selection([
         ('nam', 'Nam'),
         ('nữ','Nữ')
     ], required=False, default = 'nam')
-    NguoiLap = fields.Text(string='NguoiLap', required=False)
-    NoiSinh = fields.Text(string='Noisinh', required=False)
+    NguoiLap = fields.Text(string='NguoiLap', required=False,default="")
+    NoiSinh = fields.Text(string='Noisinh', required=False,default="")
     
     def action_Hedaotao(self):
         conn = pymssql.connect(server='localhost', user='sincollmm', password='zxcZXCV123', database='QLDT')
@@ -68,29 +69,35 @@ class vido_crm(models.Model):
 
     def action_hocvien(self):
         import requests
-        
+        from datetime import datetime
+        Ngaysinhdate = datetime.strftime(self.Ngaysinh, "%d/%m/%Y")
         dataUser = {
             'mshv': self.MSSV,
-            'name': self.Ho + self.Ten,
+            'ho': self.Ho,
+            'ten': self.Ten,
             'hinhanh': self.Hinhanh,
             'maLop': self.MaLop,
-            'hedaotao':self.hedaotaoId, 
+            'heDaoTaoId':self.hedaotaoId.id,
+            'nganhId': NULL, 
+            'chuyenNganhId': NULL,
+            'khoiNganhId': NULL,
             'namNhapHoc': self.NamNhapHoc,
             'KhoaHoc': self.KhoaHoc,
             'hoSoId': self.HoSoId,
             'ghiChu': self.GhiChu,
             'ngayLap': self.NgayLap,
             'maTrangThai': self.MaTrangThai,
-            'ngaySinh': self.Ngaysinh,
+            'ngaySinh': Ngaysinhdate,
             'email': self.Email,
             'sdt': self.SDT,
             'cmnd': self.CMND,
             'gioiTinh': self.GioiTinh,
             'nguoiLap': self.NguoiLap,
-            'noiSinh': self.NoiSinh
+            'noiSinh': self.NoiSinh,
         }
-        headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache"}
-        res = requests.post("http://localhost:8086/hocvien", data=json.dumps(dataUser), headers=headers)
+        print("da tao json: "+json.dumps(dataUser))
+        headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache", }
+        res = requests.post("http://localhost:8086/hocvien/hocsinh", data=json.dumps(dataUser), headers=headers)
         print('Resutl content: ',res.content)
         return res.content
     
