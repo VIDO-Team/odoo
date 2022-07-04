@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nganhhoc_view_tree" model="ir.ui.view">
+        <field name="name">nganhhoc.tree</field>
+        <field name="model">crm.nganhhoc</field>
+        <field name="arch" type="xml">
+          <tree string="">
+            <field name="Ma" />
+            <field name="Ten" />
+            <field name="khoiThi" />
+            <field name="khoaId" />
+            <field name="hedaotaoId" />
+            <field name="TenTA" />
+            <field name="kyHieu" />
+          </tree>
+        </field>
+      </record>
+      <record id="nganhhoc_form" model="ir.ui.view">
+        <field name="name">nganhhoc.form</field>
+        <field name="model">crm.nganhhoc</field>
+        <field name="arch" type="xml">
+          <form string="">
+            <sheet>
+              <group>
+                  <group>
+                    <field name="Ma" />
+                    <field name="Ten" />
+                    <field name="khoiThi" />
+                  </group>
+                  <group>
+                    <field name="khoaId" />
+                    <field name="hedaotaoId" />
+                    <field name="TenTA" />
+                    <field name="kyHieu" />
+                </group>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+
+    <record id="nganhhoc_action" model="ir.actions.act_window">
+        <field name="name">nganhhoc</field>
+        <field name="res_model">crm.nganhhoc</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            create nganhhoc!
+          </p>
+        </field>
+      </record>
+
+</odoo>

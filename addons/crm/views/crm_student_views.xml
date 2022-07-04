@@ -11,6 +11,8 @@
           <field name="MaLop" />
           <field name="hedaotaoId"/>
           <field name="nganhId" />
+          <field name="chuyennganhId" />
+          <field name="khoinganhId" />
           <field name="NamNhapHoc" />
           <field name="KhoaHoc" />
           <field name="GhiChu" />
@@ -33,8 +35,11 @@
       <field name="arch" type="xml">
         <form string="">
           <header>
-              <button string="Get Hedaotao" name="action_Hedaotao" type="object" class="oe_highlight"/>
-              <button string="get api" name="action_hocvien" type="object" class="oe_highlight"/>
+              <button string="Import Hedaotao" name="action_Hedaotao" type="object" invisible="1" class="oe_highlight"/>
+              <button string="Import Nganhhoc" name="action_Nganhhoc" type="object" invisible="1" class="oe_highlight"/>
+              <button string="Import Khoinganh" name="action_Khoinganh" type="object" invisible="1" class="oe_highlight"/>
+              <button string="Import Chuyennganh" name="action_Chuyennganh" type="object" invisible="1" class="oe_highlight"/>
+              <button string="Transfer Data" name="action_hocvien" type="object" class="oe_highlight"/>
           </header>
           <sheet>
             <group>
@@ -44,9 +49,9 @@
                   <field name="Hinhanh" />
                   <field name="MaLop" />
                   <field name="hedaotaoId" widget="many2onebutton"/>
-                  <field name="nganhId" />
-                  <!-- <field name="ChuyenNganhId" />
-                  <field name="KhoiNganhId" /> -->
+                  <field name="nganhId" widget="many2onebutton"/>
+                  <field name="chuyennganhId" widget="many2onebutton"/>
+                  <field name="khoinganhId" widget="many2onebutton"/>
                   <field name="NamNhapHoc" />
                   <field name="KhoaHoc" />
                 </group>
@@ -72,17 +77,17 @@
       <field name="name">student.kanban</field>
       <field name="model">crm.sinhvien</field>
       <field name="arch" type="xml">
-        <kanban default_group_by="MaTrangThai" class="o_kanban_small_column o_opportunity_kanban" on_create="quick_create" quick_create_view="crm.quick_create_opportunity_form"
+        <kanban default_group_by="hedaotaoId" class="o_kanban_small_column o_opportunity_kanban" on_create="quick_create" quick_create_view="crm.quick_create_opportunity_form"
         archivable="false" sample="1">
-          <field name="MaTrangThai" options='{"group_by_tooltip": {"requirements": "Description"}}'/>
+          <field name="hedaotaoId" options='{"group_by_tooltip": {"requirements": "Description"}}'/>
           <field name="Ho" />
           <field name="Ten" />
           <field name="Hinhanh" />
           <field name="MaLop" />
-          <field name="hedaotaoId">
-            <field name="Ten"/>
-          </field>
+          <field name="hedaotaoId"/>
           <field name="nganhId" />
+          <field name="chuyennganhId" />
+          <field name="khoinganhId" />
           <field name="NamNhapHoc" />
           <field name="KhoaHoc" />
           <field name="Ngaysinh" />
@@ -102,6 +107,8 @@
                           <li>Mã Lớp: <field name="MaLop" /></li>
                           <li>Hệ đào tạo: <field name="hedaotaoId" /></li>
                           <li>Ngành học: <field name="nganhId" /></li>
+                          <li>Chuyên ngành <field name="chuyennganhId" /></li>
+                          <li>Khối ngành <field name="khoinganhId" /></li>
                           <li>Năm nhập học: <field name="NamNhapHoc" /></li>
                           <li>Khóa học: <field name="KhoaHoc" /></li>
                           <li>Ngày sinh: <field name="Ngaysinh" /></li>

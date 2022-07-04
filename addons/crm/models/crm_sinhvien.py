@@ -18,24 +18,26 @@ class vido_crm(models.Model):
     _name = 'crm.sinhvien'
     _description = 'thong tin models sinh vien'
 
-    Ho = fields.Text(string ='Ho', required=True)
-    Ten = fields.Text(string='Ten', required=True)
-    Hinhanh = fields.Text(string='Hinhanh', required=False,default="")
-    MaLop = fields.Text(string='MaLop', required=True)
-    hedaotaoId = fields.Many2one('crm.hedaotao',string='hedaotaoId')
-    nganhId = fields.Many2one('crm.nganhhoc',string='nganhId')
-    GioiTinhId = fields.Many2one('crm.gioitinh', string='GioiTinhId')
-    NamNhapHoc = fields.Integer(string='NamNhapHoc', default=1)
-    KhoaHoc = fields.Integer(string='KhoaHoc', default=1)
-    GhiChu = fields.Text(string='GhiChu', required=False,default="")
-    NgayLap = fields.Date(string='NgayLap', required=False)
-    MaTrangThai = fields.Text(string='MaTrangThai', required=False,default="")
-    Ngaysinh = fields.Date(string='Ngaysinh', required=True)
+    Ho = fields.Text(string ='Họ', required=True)
+    Ten = fields.Text(string='Tên', required=True)
+    Hinhanh = fields.Text(string='Hình ảnh', required=False,default="")
+    MaLop = fields.Text(string='Mã lớp', required=True)
+    chuyennganhId = fields.Many2one('crm.chuyennganh',string='Chuyên ngành Id')
+    khoinganhId = fields.Many2one('crm.khoinganh', string='Khối ngành Id')
+    hedaotaoId = fields.Many2one('crm.hedaotao',string='Hệ đào tạo Id')
+    nganhId = fields.Many2one('crm.nganhhoc',string='Ngành Id')
+    GioiTinhId = fields.Many2one('crm.gioitinh', string='Giới tính')
+    NamNhapHoc = fields.Integer(string='Năm nhập học', default=1)
+    KhoaHoc = fields.Integer(string='Khóa học', default=1)
+    GhiChu = fields.Text(string='Ghi chú', required=False,default="")
+    NgayLap = fields.Date(string='Ngày lập', required=False)
+    MaTrangThai = fields.Text(string='Mã trạng thái', required=False,default="")
+    Ngaysinh = fields.Date(string='Ngày sinh', required=True)
     Email = fields.Text(string='Email', required=False,default="")
     SDT = fields.Text(string='SDT', required=False,default="")
     CMND = fields.Text(string='CMND', required=False,default="")
-    NguoiLap = fields.Text(string='NguoiLap', required=False,default="")
-    NoiSinh = fields.Text(string='Noisinh', required=False,default="")
+    NguoiLap = fields.Text(string='Người lập', required=False,default="")
+    NoiSinh = fields.Text(string='Nơi sinh', required=False,default="")
     
     def action_Hedaotao(self):
         conn = pymssql.connect(server='localhost', user='sincollmm', password='zxcZXCV123', database='QLDT')
@@ -60,6 +62,81 @@ class vido_crm(models.Model):
             
         return conPG.commit()
 
+    def action_Nganhhoc(self):
+        conn = pymssql.connect(server='localhost', user='sincollmm', password='zxcZXCV123', database='QLDT')
+        cursor = conn.cursor() 
+        conPG = psycopg2.connect(dbname="crmVido", user="odoo", password="vido@01", host="localhost", port="5432") 
+        print("Database opened successfully")
+        cur = conPG.cursor();
+        query = 'SELECT * from tbl_QLDT_CTDT_Nganh'
+        cursor.execute(query)
+        records = cursor.fetchall()
+        for item in records:
+            insert_sql = """INSERT INTO crm_nganhhoc (id, "Ma", "Ten", "khoiThi", "khoaId", "hedaotaoId","TenTA","kyHieu") 
+                            VALUES({Id},'{Ma}','{Ten}','{khoiThi}',{khoaId},{hedaotaoId},'{TenTA}','{kyHieu}')""".format(
+                                Id = item[0],
+                                Ma = item[1].strip(),
+                                Ten = item[2].strip(),
+                                khoiThi = item[3].strip(),
+                                khoaId = json.dumps(item[4]),
+                                hedaotaoId = item[5],
+                                TenTA = item[6],
+                                kyHieu = item[7])
+                                
+            print(insert_sql)
+            cur.execute(insert_sql)
+            
+        return conPG.commit()
+    
+    def action_Khoinganh(self):
+        conn = pymssql.connect(server='localhost', user='sincollmm', password='zxcZXCV123', database='QLDT')
+        cursor = conn.cursor() 
+        conPG = psycopg2.connect(dbname="crmVido", user="odoo", password="vido@01", host="localhost", port="5432") 
+        print("Database opened successfully")
+        cur = conPG.cursor();
+        query = 'SELECT * from tbl_QLDT_CTDT_KhoiNganh'
+        cursor.execute(query)
+        records = cursor.fetchall()
+        for item in records:
+            insert_sql = """INSERT INTO crm_khoinganh (id, "Ma", "Ten", "chuyenNganhId", "khoaHoc", "soTinChi","soHocKy") 
+                            VALUES({Id},'{Ma}','{Ten}',{chuyenNganhId},{khoaHoc},{soTinChi},{soHocKy})""".format(
+                                Id = item[0],
+                                Ma = item[1].strip(),
+                                Ten = item[2].strip(),
+                                chuyenNganhId = item[3],
+                                khoaHoc = item[4],
+                                soTinChi = json.dumps(item[5]),
+                                soHocKy = item[6])
+                                
+            print(insert_sql)
+            cur.execute(insert_sql)
+            
+        return conPG.commit()
+    
+    def action_Chuyennganh(self):
+        conn = pymssql.connect(server='localhost', user='sincollmm', password='zxcZXCV123', database='QLDT')
+        cursor = conn.cursor() 
+        conPG = psycopg2.connect(dbname="crmVido", user="odoo", password="vido@01", host="localhost", port="5432") 
+        print("Database opened successfully")
+        cur = conPG.cursor();
+        query = 'SELECT * from tbl_QLDT_CTDT_ChuyenNganh'
+        cursor.execute(query)
+        records = cursor.fetchall()
+        for item in records:
+            insert_sql = """INSERT INTO crm_chuyennganh (id, "Ma", "Ten", "NganhId", "TenTA", "kyHieu") 
+                            VALUES({Id},'{Ma}','{Ten}',{NganhId},'{TenTA}','{kyHieu}')""".format(
+                                Id = item[0],
+                                Ma = item[1].strip(),
+                                Ten = item[2].strip(),
+                                NganhId = json.dumps(item[3]),
+                                TenTA = json.dumps(item[4]),
+                                kyHieu = json.dumps(item[5]))
+                                
+            print(insert_sql)
+            cur.execute(insert_sql)
+            
+        return conPG.commit()
+
     def action_hocvien(self):
         import requests
         from datetime import datetime
@@ -70,9 +147,9 @@ class vido_crm(models.Model):
             'hinhanh': self.Hinhanh,
             'maLop': self.MaLop,
             'heDaoTaoId':self.hedaotaoId.id,
-            'nganhId': NULL, 
-            'chuyenNganhId': NULL,
-            'khoiNganhId': NULL,
+            'nganhId': self.nganhId.id, 
+            'chuyenNganhId': self.chuyennganhId.id,
+            'khoiNganhId': self.khoinganhId.id,
             'namNhapHoc': self.NamNhapHoc,
             'KhoaHoc': self.KhoaHoc,
             'ghiChu': self.GhiChu,
@@ -88,7 +165,7 @@ class vido_crm(models.Model):
         }
         print("da tao json: "+json.dumps(dataUser))
         headers = {"Content-Type": "application/json", "Accept": "application/json", "Catch-Control": "no-cache", }
-        res = requests.post("http://localhost:8086/hocvien/hocsinh", data=json.dumps(dataUser), headers=headers)
+        res = requests.post("http://localhost:8086/hocvien/hocvien", data=json.dumps(dataUser), headers=headers)
         print('Resutl content: ',res.content)
         return res.content
     
