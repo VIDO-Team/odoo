@@ -7,7 +7,7 @@ class KhoiNganh(models.Model):
 
     ma = fields.Char('Mã')
     ten = fields.Char('Tên')
-    chuyenNganhId = fields.Many2many('Id chuyên ngành')
+    chuyenNganhId = fields.Many2one('Id chuyên ngành')
     khoaHoc = fields.Integer('Khóa học')
     soTinChi = fields.Float('Số tín chỉ')
     soHocKy = fields.Integer('Số học kỳ')

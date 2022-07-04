@@ -17,3 +17,5 @@ from . import crm_recurring_plan
 from . import crm_chuyennganh
 from . import crm_khoinganh
 from . import crm_hocvien
+from . import crm_nganhhoc
+from . import crm_hedaotao

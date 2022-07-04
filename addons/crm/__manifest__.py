@@ -56,6 +56,7 @@
         'views/crm_team_views.xml',
         # 'views/crm_chuyennganh_views.xml',
         # 'views/crm_khoinganh_views.xml',
+        # 'views/crm_nganhhoc_views.xml',
         'views/crm_hocvien_views.xml',
     ],
     'demo': [

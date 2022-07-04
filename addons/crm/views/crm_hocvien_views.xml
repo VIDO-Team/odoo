@@ -7,7 +7,10 @@
             <field name="arch" type="xml">
                 <form string="">
                     <header>
-                        <button string= "Add Chuyen Nganh" name="action_Chuyennganh" type="object" class="oe_highlight" />
+                        <button string= "Insert Chuyen Nganh" name="action_Chuyennganh" type="object" class="oe_highlight" />
+                        <button string= "Insert Khoi Nganh" name="action_Khoinganh" type="object" class="oe_highlight" />
+                        <button string= "Insert Nganh Hoc" name="action_Nganhhoc" type="object" class="oe_highlight" />
+                        <button string= "Update He Dao Tao" name="action_UpdateHDT" type="object" class="oe_highlight" />
                     </header>
                     <sheet>
                         <group>
@@ -17,8 +20,11 @@
                                 <field name="ten"></field>
                             </group>
                             <group>
+                                <field name="heDaoTaoId"></field>
+                                <field name="nganhId"></field>
                                 <field name="chuyenNganhId"></field>
                                 <field name="khoiNganhId"></field>
+                                
                             </group>
                         </group>
                     </sheet>
@@ -34,8 +40,11 @@
                     <field name="mshv" />
                     <field name="ho" />
                     <field name="ten" />
+                    <field name="heDaoTaoId" />
+                    <field name="nganhId" />
                     <field name="chuyenNganhId" />
                     <field name="khoiNganhId" />
+                    
                 </tree>
             </field>
         </record>        

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="chuyennganh_view_tree" model="ir.ui.view">
-        <field name="name">chuyennganh.tree</field>
-        <field name="model">crm.chuyennganh</field>
+    <record id="hedaotao_view_tree" model="ir.ui.view">
+        <field name="name">hedaotao.tree</field>
+        <field name="model">crm.hedaotao</field>
         <field name="arch" type="xml">
           <tree string="">
             <field name="Ma" />
             <field name="Ten" />
-            <field name="NganhId" />
             <field name="TenTA" />
-            <field name="kyHieu" />
+            <field name="HinhThucDaoTaoId" />
+            <field name="KyHieu" />
           </tree>
         </field>
       </record>
-      <record id="chuyennganh_form" model="ir.ui.view">
-        <field name="name">chuyennganh.form</field>
-        <field name="model">crm.chuyennganh</field>
+      <record id="hedaotao_form" model="ir.ui.view">
+        <field name="name">hedaotao.form</field>
+        <field name="model">crm.hedaotao</field>
         <field name="arch" type="xml">
           <form string="">
             <sheet>
@@ -23,11 +23,11 @@
                   <group>
                     <field name="Ma" />
                     <field name="Ten" />
+                    <field name="TenTA" />
                   </group>
                   <group>
-                    <field name="NganhId" />
-                    <field name="TenTA" />
-                    <field name="kyHieu" />
+                    <field name="HinhThucDaoTaoId" />>
+                    <field name="KyHieu" />
                 </group>
               </group>
             </sheet>
@@ -35,15 +35,15 @@
         </field>
       </record>
 
-    <record id="chuyennganh_action" model="ir.actions.act_window">
-        <field name="name">chuyennganhVido</field>
-        <field name="res_model">crm.chuyennganh</field>
+    <record id="hedaotao_action" model="ir.actions.act_window">
+        <field name="name">hedaotaoVido</field>
+        <field name="res_model">crm.hedaotao</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-            create chuyennganh!
+            create hedaotao!
           </p>
         </field>
       </record>
