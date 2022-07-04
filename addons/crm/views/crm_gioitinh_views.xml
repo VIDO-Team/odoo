@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gioitinh_view_tree" model="ir.ui.view">
+        <field name="name">gioitinh.tree</field>
+        <field name="model">crm.gioitinh</field>
+        <field name="arch" type="xml">
+          <tree string="">
+            <field name="GioitinhId" />
+            <field name="gioiTinh" />
+          </tree>
+        </field>
+      </record>
+      <record id="gioitinh_form" model="ir.ui.view">
+        <field name="name">gioitinh.form</field>
+        <field name="model">crm.gioitinh</field>
+        <field name="arch" type="xml">
+          <form string="">
+            <sheet>
+              <group>
+                  <group>
+                    <field name="GioitinhId" />
+                    <field name="gioiTinh" />
+                  </group>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+
+    <record id="gioitinh_action" model="ir.actions.act_window">
+        <field name="name">gioitinh</field>
+        <field name="res_model">crm.gioitinh</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            create gioi tinh!
+          </p>
+        </field>
+      </record>
+
+</odoo>

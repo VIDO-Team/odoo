@@ -20,16 +20,13 @@ class vido_crm(models.Model):
 
     Ho = fields.Text(string ='Ho', required=True)
     Ten = fields.Text(string='Ten', required=True)
-    MSSV = fields.Text(string ='MSSV', required=True)
     Hinhanh = fields.Text(string='Hinhanh', required=False,default="")
     MaLop = fields.Text(string='MaLop', required=True)
-    
     hedaotaoId = fields.Many2one('crm.hedaotao',string='hedaotaoId')
     nganhId = fields.Many2one('crm.nganhhoc',string='nganhId')
-    
+    GioiTinhId = fields.Many2one('crm.gioitinh', string='GioiTinhId')
     NamNhapHoc = fields.Integer(string='NamNhapHoc', default=1)
     KhoaHoc = fields.Integer(string='KhoaHoc', default=1)
-    HoSoId = fields.Integer(string='HoSoId', required=False,default="")
     GhiChu = fields.Text(string='GhiChu', required=False,default="")
     NgayLap = fields.Date(string='NgayLap', required=False)
     MaTrangThai = fields.Text(string='MaTrangThai', required=False,default="")
@@ -37,10 +34,6 @@ class vido_crm(models.Model):
     Email = fields.Text(string='Email', required=False,default="")
     SDT = fields.Text(string='SDT', required=False,default="")
     CMND = fields.Text(string='CMND', required=False,default="")
-    GioiTinh = fields.Selection([
-        ('nam', 'Nam'),
-        ('nữ','Nữ')
-    ], required=False, default = 'nam')
     NguoiLap = fields.Text(string='NguoiLap', required=False,default="")
     NoiSinh = fields.Text(string='Noisinh', required=False,default="")
     
@@ -72,7 +65,6 @@ class vido_crm(models.Model):
         from datetime import datetime
         Ngaysinhdate = datetime.strftime(self.Ngaysinh, "%d/%m/%Y")
         dataUser = {
-            'mshv': self.MSSV,
             'ho': self.Ho,
             'ten': self.Ten,
             'hinhanh': self.Hinhanh,
@@ -83,7 +75,6 @@ class vido_crm(models.Model):
             'khoiNganhId': NULL,
             'namNhapHoc': self.NamNhapHoc,
             'KhoaHoc': self.KhoaHoc,
-            'hoSoId': self.HoSoId,
             'ghiChu': self.GhiChu,
             'ngayLap': self.NgayLap,
             'maTrangThai': self.MaTrangThai,
@@ -91,7 +82,7 @@ class vido_crm(models.Model):
             'email': self.Email,
             'sdt': self.SDT,
             'cmnd': self.CMND,
-            'gioiTinh': self.GioiTinh,
+            'gioiTinh': self.GioiTinhId.GioitinhId,
             'nguoiLap': self.NguoiLap,
             'noiSinh': self.NoiSinh,
         }

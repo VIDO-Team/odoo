@@ -55,7 +55,8 @@
         'report/crm_opportunity_report_views.xml',
         'views/crm_team_views.xml',
         'views/crm_student_views.xml',
-        'views/crm_hedaotao_views.xml'
+        'views/crm_hedaotao_views.xml',
+        'views/crm_gioitinh_views.xml',
    ],
     'demo': [
         'data/crm_team_demo.xml',

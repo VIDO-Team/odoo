@@ -31,3 +31,4 @@ access_crm_lead_scoring_frequency_field_system,access_crm_lead_scoring_frequency
 access_sinhvien,access.sinhvien,model_crm_sinhvien,base.group_user,1,1,1,1
 access_hedaotao,access.hedaotao,model_crm_hedaotao,base.group_user,1,1,1,1
 access_nganhhoc,access.nganhhoc,model_crm_nganhhoc,base.group_user,1,1,1,1
+access_gioitinh,access.gioitinh,model_crm_gioitinh,base.group_user,1,1,1,1

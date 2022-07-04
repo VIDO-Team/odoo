@@ -7,16 +7,12 @@
         <tree string="">
           <field name="Ho" />
           <field name="Ten" />
-          <field name="MSSV" />
           <field name="Hinhanh" />
           <field name="MaLop" />
           <field name="hedaotaoId"/>
           <field name="nganhId" />
-          <!-- <field name="ChuyenNganhId" />
-          <field name="KhoiNganhId" /> -->
           <field name="NamNhapHoc" />
           <field name="KhoaHoc" />
-          <field name="HoSoId" />
           <field name="GhiChu" />
           <field name="NgayLap" />
           <field name="MaTrangThai" />
@@ -24,7 +20,7 @@
           <field name="Email" />
           <field name="SDT" />
           <field name="CMND" />
-          <field name="GioiTinh" />
+          <field name="GioiTinhId" />
           <field name="NguoiLap" />
           <field name="NoiSinh" />
         </tree>
@@ -45,7 +41,6 @@
                 <group>
                   <field name="Ho" />
                   <field name="Ten" />
-                  <field name="MSSV" />
                   <field name="Hinhanh" />
                   <field name="MaLop" />
                   <field name="hedaotaoId" widget="many2onebutton"/>
@@ -54,7 +49,6 @@
                   <field name="KhoiNganhId" /> -->
                   <field name="NamNhapHoc" />
                   <field name="KhoaHoc" />
-                  <field name="HoSoId" />
                 </group>
                 <group>
                   <field name="GhiChu" />
@@ -64,7 +58,7 @@
                   <field name="Email" />
                   <field name="SDT" />
                   <field name="CMND" />
-                  <field name="GioiTinh" />
+                  <field name="GioiTinhId" />
                   <field name="NguoiLap" />
                   <field name="NoiSinh" />
               </group>
@@ -83,7 +77,6 @@
           <field name="MaTrangThai" options='{"group_by_tooltip": {"requirements": "Description"}}'/>
           <field name="Ho" />
           <field name="Ten" />
-          <field name="MSSV" />
           <field name="Hinhanh" />
           <field name="MaLop" />
           <field name="hedaotaoId">
@@ -96,7 +89,7 @@
           <field name="Email" />
           <field name="SDT" />
           <field name="CMND" />
-          <field name="GioiTinh" />
+          <field name="GioiTinhId" />
           <field name="NoiSinh" />
             <templates>
               <t t-name="kanban-box">
@@ -105,7 +98,6 @@
                         <ul>
                           <li>Họ: <field name="Ho" /></li>
                           <li>Tên: <field name="Ten" /></li>
-                          <li>Mã số sinh viên: <field name="MSSV" /></li>
                           <li>Hình ảnh: <field name="Hinhanh" /></li>
                           <li>Mã Lớp: <field name="MaLop" /></li>
                           <li>Hệ đào tạo: <field name="hedaotaoId" /></li>
@@ -116,7 +108,7 @@
                           <li>Email: <field name="Email" /></li>
                           <li>Số điện thoại: <field name="SDT" /></li>
                           <li>CMND: <field name="CMND" /></li>
-                          <li>Giới tính: <field name="GioiTinh" /></li>
+                          <li>Giới tính: <field name="GioiTinhId" /></li>
                           <li>Nơi sinh: <field name="NoiSinh" /></li>
                         </ul>
                       </div>
