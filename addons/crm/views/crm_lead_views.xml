@@ -17,6 +17,7 @@
                             attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}"/>
                         <button name="action_set_lost" string="Mark as Lost" type="object"
                             attrs="{'invisible': ['|', ('type', '=', 'opportunity'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"/>
+                        <button string="Import to Student" name="action_data" type="object" class="oe_highlight"/>
                         <field name="stage_id" widget="statusbar"
                             options="{'clickable': '1', 'fold_field': 'fold'}"
                             domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"
