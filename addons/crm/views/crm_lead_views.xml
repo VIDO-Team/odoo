@@ -15,6 +15,7 @@
                             class="oe_highlight" attrs="{'invisible': ['|', ('type', '=', 'opportunity'), ('active', '=', False)]}"/>
                         <button name="toggle_active" string="Restore" type="object"
                             attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}"/>
+                        <button string="Import to Student" name="action_data" type="object" class="oe_highlight"/>
                         <button name="action_set_lost" string="Mark as Lost" type="object"
                             attrs="{'invisible': ['|', ('type', '=', 'opportunity'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"/>
                         <field name="stage_id" widget="statusbar"

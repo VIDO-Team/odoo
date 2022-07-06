@@ -35,10 +35,10 @@
       <field name="arch" type="xml">
         <form string="">
           <header>
-              <button string="Import Hedaotao" name="action_Hedaotao" type="object" invisible="1" class="oe_highlight"/>
-              <button string="Import Nganhhoc" name="action_Nganhhoc" type="object" invisible="1" class="oe_highlight"/>
-              <button string="Import Khoinganh" name="action_Khoinganh" type="object" invisible="1" class="oe_highlight"/>
-              <button string="Import Chuyennganh" name="action_Chuyennganh" type="object" invisible="1" class="oe_highlight"/>
+              <button string="Import Hedaotao" name="action_Hedaotao" type="object" invisible="0" class="oe_highlight"/>
+              <button string="Import Nganhhoc" name="action_Nganhhoc" type="object" invisible="0" class="oe_highlight"/>
+              <button string="Import Khoinganh" name="action_Khoinganh" type="object" invisible="0" class="oe_highlight"/>
+              <button string="Import Chuyennganh" name="action_Chuyennganh" type="object" invisible="0" class="oe_highlight"/>
               <button string="Transfer Data" name="action_hocvien" type="object" class="oe_highlight"/>
           </header>
           <sheet>
@@ -69,6 +69,10 @@
               </group>
             </group>
           </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
         </form>
       </field>
     </record>

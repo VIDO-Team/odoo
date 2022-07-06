@@ -16,12 +16,13 @@ import psycopg2
 
 class vido_crm(models.Model):
     _name = 'crm.sinhvien'
+    _inherit=['mail.thread','mail.activity.mixin']
     _description = 'thong tin models sinh vien'
 
-    Ho = fields.Text(string ='Họ', required=True)
-    Ten = fields.Text(string='Tên', required=True)
+    Ho = fields.Text(string ='Họ', required=False)
+    Ten = fields.Text(string='Tên', required=False)
     Hinhanh = fields.Text(string='Hình ảnh', required=False,default="")
-    MaLop = fields.Text(string='Mã lớp', required=True)
+    MaLop = fields.Text(string='Mã lớp', required=False)
     chuyennganhId = fields.Many2one('crm.chuyennganh',string='Chuyên ngành Id')
     khoinganhId = fields.Many2one('crm.khoinganh', string='Khối ngành Id')
     hedaotaoId = fields.Many2one('crm.hedaotao',string='Hệ đào tạo Id')
@@ -32,7 +33,7 @@ class vido_crm(models.Model):
     GhiChu = fields.Text(string='Ghi chú', required=False,default="")
     NgayLap = fields.Date(string='Ngày lập', required=False)
     MaTrangThai = fields.Text(string='Mã trạng thái', required=False,default="")
-    Ngaysinh = fields.Date(string='Ngày sinh', required=True)
+    Ngaysinh = fields.Date(string='Ngày sinh', required=False)
     Email = fields.Text(string='Email', required=False,default="")
     SDT = fields.Text(string='SDT', required=False,default="")
     CMND = fields.Text(string='CMND', required=False,default="")

@@ -5,6 +5,7 @@ import logging
 import threading
 from datetime import date, datetime, timedelta
 from psycopg2 import sql
+import psycopg2
 
 from odoo import api, fields, models, tools, SUPERUSER_ID
 from odoo.osv import expression
@@ -206,6 +207,20 @@ class Lead(models.Model):
     _sql_constraints = [
         ('check_probability', 'check(probability >= 0 and probability <= 100)', 'The probability of closing the deal should be between 0% and 100%!')
     ]
+
+    def action_data(self):
+        print('Ten hoc sinh: '+self.partner_name+'\nemail: '+self.email_from+'\nphone: '+self.phone)
+        conPG = psycopg2.connect(dbname="crmVido", user="odoo", password="vido@01", host="localhost", port="5432") 
+        print("Database opened successfully")
+        cursor = conPG.cursor()
+        insert_sql = """INSERT INTO crm_sinhvien (id,"Ten", "Email", "SDT") VALUES ({Id},'{Ten}','{email}','{phone}')""".format(
+            Id = self.id,
+            Ten = self.partner_name,
+            email = self.email_from,
+            phone = self.phone
+        )     
+        cursor.execute(insert_sql)
+        return conPG.commit()
 
     @api.depends('activity_date_deadline')
     def _compute_kanban_state(self):
